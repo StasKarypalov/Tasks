@@ -1,8 +1,7 @@
-function ClearArr(array){
-let clarr = array.filter((item,index)=> array.indexOf(item)===index);
-console.log(clarr)
+function removeDuplicates(array) {
+  return [...new Set(arr)];
 }
 
-var arr=[1,2,2,5,7,9,9,3];
+let arr = [1, 2, 2, 5, 7, 9, 9, 3];
 
-ClearArr(arr);
+console.log(removeDuplicates(arr));

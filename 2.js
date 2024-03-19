@@ -1,16 +1,13 @@
-function palindrom(str){
-    let strr = ""
-    for(let i = str.length-1; i >=0;i--){
-        strr+=str[i];
-    }
-    console.log(strr);
-    if (strr==str){
-        console.log("palindrom");
-    }else{
-        console.log("no palindrom");
+function palindrome(str){
+    for(let i =0; i < str.length; i++){
+        if(str[i]==str[str.length-i-1]){
+            return true;
+        }else{
+            return false
+        }
     }
 }
 
 let str = 'mom ana sis sis ana mom';
 
-palindrom(str);
+console.log(palindrome(str));

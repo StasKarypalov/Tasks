@@ -1,17 +1,23 @@
-function RemoveDuplicates(arr){
-    let cleararr = arr.filter((index,item) => arr.indexOf(index)===item);
-    return cleararr;
+function removeDuplicates(array, getProperty) {
+    let uniqueElements = [];
+    let seen = new Set();
+  
+    for (let i = 0; i < array.length; i++) {
+      let element = array[i];
+      let property = getProperty(element);
+  
+      if (!seen.has(property)) {
+        seen.add(property);
+        uniqueElements.push(element);
+      }
     }
+  
+    return uniqueElements;
+  }
 
-let arr = [1,2,2,3,3,4,4,5,7,8,9,9];
-let dubl = RemoveDuplicates(arr);
+const array = [{name: "Pavel", surname: "Pushkin"}, {name: "Pavel", surname: "Ptushkin"}]
+const uniquesByName = removeDuplicates(array, x => x.name); 
+const uniquesBySurname = removeDuplicates(array, x => x.surname); 
 
-const predicat = (arr)=>dubl.includes(arr);
-
-console.log(dubl);
-let pr=predicat(arr);
-if(pr==false){
-    console.log("не содержит дубликаты");
-}else{
-    console.log("содержит дубликаты");
-}
+console.log(uniquesByName);
+console.log(uniquesBySurname);
